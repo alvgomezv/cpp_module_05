@@ -1,27 +1,22 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 
 int main(void)
 {
-	std::string name;
-	int grade;
-	try
-	{
-		std::cout << "Enter name: ";
-		std::cin >> name;
-		std::cout << "Enter grade: ";
-		std::cin >> grade;
-		Bureaucrat pepe(name, grade);
-		std::cout << pepe;
-		pepe.incrementGrade();
-		std::cout << pepe;
-		pepe.decrementGrade();
-		std::cout << pepe;
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	int gradeB;
+	int gradeF;
+	std::cout << "Enter bureaucrat grade: ";
+	std::cin >> gradeB;
+	std::cout << "Enter form grade to be signed: ";
+	std::cin >> gradeF;
+	
+	Bureaucrat pepe("Pepe", gradeB);
+	Form form("Form", gradeF, 150);
+	std::cout << pepe;
+	std::cout << form;
+	pepe.signForm(form);
+	std::cout << form;
 	
 	return 0;
 }
