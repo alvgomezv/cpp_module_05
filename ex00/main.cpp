@@ -1,21 +1,27 @@
-#include "ClapTrap.hpp"
+#include "Bureaucrat.hpp"
 
 
 int main(void)
 {
-	ClapTrap	one("one");
-	ClapTrap	two("two");
-
-	one.attack(two.getName());
-	two.takeDamage(1);
-
-	two.attack(one.getName());
-	two.beRepaired(1);
-	for (int i = 0; i < 10; i++)
-		two.takeDamage(1);
-	two.takeDamage(1);
-
-	two.printStats();
+	std::string name;
+	int grade;
+	try
+	{
+		std::cout << "Enter name: ";
+		std::cin >> name;
+		std::cout << "Enter grade: ";
+		std::cin >> grade;
+		Bureaucrat pepe(name, grade);
+		std::cout << pepe;
+		pepe.incrementGrade();
+		std::cout << pepe;
+		pepe.decrementGrade();
+		std::cout << pepe;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	
 	return 0;
 }
