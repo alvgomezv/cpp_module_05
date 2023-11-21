@@ -17,6 +17,18 @@ AForm::AForm(std::string name, int gradeToSign, int gradeToExecute) : _name(name
 	return ;
 }
 
+AForm::AForm(AForm const& other) : _name(other.getName()), _signed(other.getSigned()), _gradeToSign(other.getGradeToSign()), _gradeToExecute(other.getGradeToExecute())
+{
+	std::cout << "AForm copy constructor called" << std::endl;
+	return ;
+}
+
+AForm&	AForm::operator=(AForm const& other)
+{
+	this->_signed = other.getSigned();
+	return (*this);
+}
+
 AForm::~AForm(void)
 {
 	std::cout << "AForm destructor called" << std::endl;

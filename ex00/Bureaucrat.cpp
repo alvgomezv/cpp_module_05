@@ -16,6 +16,18 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 	return ;
 }
 
+Bureaucrat::Bureaucrat(Bureaucrat const& other) : _name(other.getName())
+{
+	std::cout << "Bureaucrat copy constructor called" << std::endl;
+	return ;
+}
+
+Bureaucrat&	Bureaucrat::operator=(Bureaucrat const& other)
+{
+	this->_grade = other.getGrade();
+	return (*this);
+}
+
 Bureaucrat::~Bureaucrat(void)
 {
 	std::cout << "Bureaucrat destructor called" << std::endl;

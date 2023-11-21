@@ -1,37 +1,47 @@
 #include "ShrubberyCreationForm.hpp"
 #include "AForm.hpp"
-#include "Bureaucrat.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(void)
 {
 	std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
+	printTree("default");
 	return ;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name, int gradeToSign, int gradeToExecute)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target, int gradeToSign, int gradeToExecute)
 {
 	std::cout << "ShrubberyCreationForm constructor called" << std::endl;
 	if (gradeToSign < 1 || gradeToExecute < 1)
-		throw ShrubberyCreationForm::GradeTooHighException();
-	else if (gradeToSign > 150 || gradeToExecute > 150)
-		throw ShrubberyCreationForm::GradeTooLowException();
-	return ;
+		throw AForm::GradeTooHighException();
+	else if (gradeToSign > 145 || gradeToExecute > 137)
+		throw AForm::GradeTooLowException();
+	printTree(target);
 }
-
+ 
 ShrubberyCreationForm::~ShrubberyCreationForm(void)
 {
 	std::cout << "ShrubberyCreationForm destructor called" << std::endl;
 	return ;
 }
 
-std::ostream&	operator<<(std::ostream& out, ShrubberyCreationForm const& ShrubberyCreationForm)
+void	ShrubberyCreationForm::printTree(std::string target) const
 {
-	std::string signedStr;
-	if (ShrubberyCreationForm.getSigned())
-		signedStr = "Yes";
-	else
-		signedStr = "No";
-	out << "ShrubberyCreationForm Name: " << ShrubberyCreationForm.getName() << std::endl << "- Signed: " << signedStr << std::endl << "- Grade to sign: " << ShrubberyCreationForm.getGradeToSign() << std::endl << "- Grade to execute: " << ShrubberyCreationForm.getGradeToExecute() << std::endl;
-	return (out);
+	std::ofstream newFile(target + "_shrubbery");
+	if (!newFile)
+	{
+		std::cerr << "Error opening new file" << std::endl;
+		exit (1);
+	}
+	newFile << "       _-_" << std::endl;
+	newFile << "    /~~   ~~\\" << std::endl;
+	newFile << " /~~         ~~\\" << std::endl;
+	newFile << "{               }" << std::endl;
+	newFile << " \\  _-     -_  /" << std::endl;
+	newFile << "   ~  \\\\ //  ~" << std::endl;
+	newFile << "_- -   | | _- _" << std::endl;
+	newFile << "  _ -  | |   -_" << std::endl;
+	newFile << "      // \\\\" << std::endl;
+	newFile << std::endl;
+	return ;
 }
 

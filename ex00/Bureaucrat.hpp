@@ -13,6 +13,8 @@ class Bureaucrat
 	public:
 		Bureaucrat(void);
 		Bureaucrat(std::string name, int grade);
+		Bureaucrat(Bureaucrat const& other);
+		Bureaucrat& operator=(Bureaucrat const& other);
 		~Bureaucrat(void);
 
 		std::string const	getName(void) const;

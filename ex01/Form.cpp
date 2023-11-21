@@ -17,6 +17,18 @@ Form::Form(std::string name, int gradeToSign, int gradeToExecute) : _name(name),
 	return ;
 }
 
+Form::Form(Form const& other) : _name(other.getName()), _signed(other.getSigned()), _gradeToSign(other.getGradeToSign()), _gradeToExecute(other.getGradeToExecute())
+{
+	std::cout << "Form copy constructor called" << std::endl;
+	return ;
+}
+
+Form&	Form::operator=(Form const& other)
+{
+	this->_signed = other.getSigned();
+	return (*this);
+}
+
 Form::~Form(void)
 {
 	std::cout << "Form destructor called" << std::endl;

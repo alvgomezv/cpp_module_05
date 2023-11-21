@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
@@ -11,12 +12,10 @@ class ShrubberyCreationForm : public AForm
 {	
 	public:
 		ShrubberyCreationForm(void);
-		ShrubberyCreationForm(std::string name, int gradeToSign, int gradeToExecute);
+		ShrubberyCreationForm(std::string target, int gradeToSign, int gradeToExecute);
 		~ShrubberyCreationForm(void);
 
-		void				beSigned(Bureaucrat& bureaucrat);
+		void	printTree(std::string target) const;
 };
-
-std::ostream&		operator<<(std::ostream& out, ShrubberyCreationForm const& ShrubberyCreationForm);
 
 #endif

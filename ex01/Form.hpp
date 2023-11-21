@@ -18,6 +18,8 @@ class Form
 	public:
 		Form(void);
 		Form(std::string name, int gradeToSign, int gradeToExecute);
+		Form(Form const& other);
+		Form& operator=(Form const& other);
 		~Form(void);
 
 		std::string const	getName(void) const;
