@@ -1,7 +1,7 @@
 CPP = g++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp main.cpp
+SRCS = Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 NAME = Bureaucrat
 
@@ -22,4 +22,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+leaks: all
+	leaks --atExit -- ./$(NAME)
+
+.PHONY: all clean fclean re leaks
