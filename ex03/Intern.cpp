@@ -31,15 +31,20 @@ AForm*	Intern::makeForm(std::string name, std::string target)
 {
 	std::string formNames[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
 	AForm*	createForms[3] = {new ShrubberyCreationForm(target), new RobotomyRequestForm(target), new PresidentialPardonForm(target)};
+	AForm*	form = NULL;
 
 	for (int i = 0; i < 3; i++)
 	{
 		if (name == formNames[i])
 		{
 			std::cout << "Intern creates " << name << std::endl;
-			return (createForms[i]);
+			form = createForms[i];
 		}
+		else
+			delete createForms[i];
 	}
+	if (form)
+		return (form);
 	std::cout << "--Error: Intern cannot create " << name << std::endl;
 	return (NULL);
 }

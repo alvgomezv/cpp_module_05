@@ -23,6 +23,6 @@ fclean: clean
 re: fclean all
 
 leaks: all
-	leaks --atExit -- ./$(NAME)
+	leaks --atExit --q -- ./$(NAME)
 
 .PHONY: all clean fclean re leaks
