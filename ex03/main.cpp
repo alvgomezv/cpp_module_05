@@ -30,8 +30,6 @@ int main(void)
 	delete form2;
 	delete form3;
 	delete form4;
-
-	//check for leaks
 	
 	return (0);
 }

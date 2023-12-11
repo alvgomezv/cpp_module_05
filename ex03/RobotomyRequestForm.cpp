@@ -3,20 +3,20 @@
 
 RobotomyRequestForm::RobotomyRequestForm(void) : AForm("RobotomyRequestForm", 72, 45)
 {
-	std::cout << "RobotomyRequestForm default constructor called" << std::endl;
+	// std::cout << "RobotomyRequestForm default constructor called" << std::endl;
 	this->setTarget("default");
 	return ;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45)
 {
-	std::cout << "RobotomyRequestForm constructor called" << std::endl;
+	// std::cout << "RobotomyRequestForm constructor called" << std::endl;
 	this->setTarget(target);
 }
  
 RobotomyRequestForm::~RobotomyRequestForm(void)
 {
-	std::cout << "RobotomyRequestForm destructor called" << std::endl;
+	// std::cout << "RobotomyRequestForm destructor called" << std::endl;
 	return ;
 }
 

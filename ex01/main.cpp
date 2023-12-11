@@ -11,12 +11,19 @@ int main(void)
 	std::cout << "Enter form grade to be signed: ";
 	std::cin >> gradeF;
 	
-	Bureaucrat pepe("Pepe", gradeB);
-	Form form("Form", gradeF, 150);
-	std::cout << pepe;
-	std::cout << form;
-	pepe.signForm(form);
-	std::cout << form;
+	try
+	{
+		Bureaucrat pepe("Pepe", gradeB);
+		Form form("Form", gradeF, 150);
+		std::cout << pepe;
+		std::cout << form;
+		pepe.signForm(form);
+		std::cout << form;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 	
 	return 0;
 }
